@@ -25,10 +25,9 @@ public class DemoSpringDataJpaApplication {
     public CommandLineRunner run(EmployeeReponsitory e) {
         return (args) -> {
 //            add(employee);
-//            Employee employee = new Employee("Hoang","Hong","Hoang@gmail.com");
 //            delete((long) 1);
+            update((long) 2,"Doan");
             System.out.println(e.findAll());
-
         };
     }
 
@@ -41,9 +40,9 @@ public class DemoSpringDataJpaApplication {
         employeeReponsitory.deleteById(id);
         System.out.println(id);
     }
-//    private void update(long e){
-//
-//
-//
-//    }
+    private void update(long id,String firstName){
+
+        employeeReponsitory.updateFirstNameByID(id,firstName);
+        System.out.println("update complete employee: "+ employeeReponsitory.findById(id));
+    }
 }
